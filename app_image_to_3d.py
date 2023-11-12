@@ -23,11 +23,9 @@ def create_demo(model: Model) -> gr.Blocks:
         )
     examples = ["corgi.png"]
 
-    @spaces.GPU
     def process_example_fn(image_path: str) -> str:
         return model.run_image(image_path)
 
-    @spaces.GPU
     def run(image: PIL.Image.Image, seed: int, guidance_scale: float, num_inference_steps: int) -> str:
         return model.run_image(image, seed, guidance_scale, num_inference_steps)
 
